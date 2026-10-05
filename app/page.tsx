@@ -1,69 +1,115 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+
+import { portfolioProjects } from "@/app/_lib/projects";
+
+export const metadata: Metadata = {
+  title: "Portfolio",
+  description: "Portfolio home page for project case studies and work samples.",
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-5 py-10 sm:px-8 lg:px-10">
+      <section className="border border-border bg-surface-strong px-6 py-8 shadow-[0_24px_80px_rgba(0,0,0,0.22)] sm:px-8 sm:py-10 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+          <div>
+            <p className="text-sm uppercase tracking-[0.3em] text-accent-strong">
+              Project index
+            </p>
+            <h1 className="mt-4 max-w-4xl font-display text-6xl leading-[0.88] tracking-tight text-foreground sm:text-7xl lg:text-8xl">
+              Work, writing, and tools.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl sm:leading-9">
+              A simple set of project entries focused on clear outcomes, real
+              product work, and the systems that make it usable.
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+            <div className="border border-border bg-surface px-4 py-4">
+              <div className="text-xs uppercase tracking-[0.24em] text-muted">
+                Use it for
+              </div>
+              <div className="mt-2 text-2xl text-foreground">Case studies</div>
+            </div>
+            <div className="border border-border bg-surface px-4 py-4">
+              <div className="text-xs uppercase tracking-[0.24em] text-muted">
+                Use it for
+              </div>
+              <div className="mt-2 text-2xl text-foreground">Photos and GIFs</div>
+            </div>
+            <div className="border border-border bg-surface px-4 py-4">
+              <div className="text-xs uppercase tracking-[0.24em] text-muted">
+                Use it for
+              </div>
+              <div className="mt-2 text-2xl text-foreground">External links</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-8">
+        <div className="mb-5 flex items-center justify-between gap-4">
+          <div>
+            <p className="text-sm uppercase tracking-[0.24em] text-muted">
+              Selected work
+            </p>
+            <h2 className="mt-2 text-2xl text-foreground sm:text-3xl">
+              Recent projects
+            </h2>
+          </div>
+          <p className="max-w-md text-right text-sm leading-6 text-muted">
+            Software, publishing workflows, and interfaces built for real use.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid gap-5 lg:grid-cols-2">
+          {portfolioProjects.map((project, index) => (
+            <Link
+              key={project.slug}
+              href={`/projects/${project.slug}`}
+              className="group flex h-full flex-col border border-border bg-surface px-6 py-6 hover:-translate-y-0.5 hover:border-accent/60 hover:bg-surface-strong"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.24em] text-muted">
+                    {String(index + 1).padStart(2, "0")} / {project.category}
+                  </p>
+                  <h3 className="mt-3 text-3xl leading-tight text-foreground">
+                    {project.title}
+                  </h3>
+                </div>
+                <span className="shrink-0 border border-border px-3 py-1 text-xs uppercase tracking-[0.2em] text-accent-strong">
+                  {project.status}
+                </span>
+              </div>
+
+              <p className="mt-4 text-base leading-7 text-muted">
+                {project.summary}
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2 text-sm text-foreground/90">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="border border-border px-3 py-1 text-xs uppercase tracking-[0.18em]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-6 flex items-center justify-between gap-3 border-t border-border pt-4 text-sm text-muted">
+                <span>{project.year}</span>
+                <span className="text-foreground transition-transform group-hover:translate-x-0.5">
+                  View project -&gt;
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
