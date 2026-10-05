@@ -159,6 +159,100 @@ export const portfolioProjects: PortfolioProject[] = [
       },
     ],
   },
+  {
+    slug: "rrscraper",
+    title: "RadioReference Scraper",
+    category: "Systems / tooling",
+    layout: "build-log",
+    year: "2024",
+    status: "Open source",
+    summary:
+      "A simple Python scraper for RadioReference that exports raw data and optional OP25 / Chirp-ready formats for SDR and radio workflows.",
+    tags: ["Python", "Radio", "Scraping", "OP25", "Chirp"],
+    links: [{ label: "GitHub", href: "https://github.com/jonshaw199/rrscraper" }],
+    facts: [
+      { label: "Inputs", value: "/sid, /ctid, /aid URLs" },
+      { label: "Outputs", value: "CSV + OP25 + Chirp" },
+    ],
+    sections: [
+      {
+        type: "narrative",
+        title: "Overview",
+        paragraphs: [
+          "This project is a straightforward scraper for RadioReference pages. It takes a single system, county, or agency URL and exports structured data in a format that is easier to work with downstream.",
+          "The project is intentionally narrow in scope: it does not crawl the whole site, it scrapes a specific page and then optionally formats the result for OP25 or Chirp-based workflows.",
+        ],
+      },
+      {
+        type: "points",
+        title: "Why it matters",
+        items: [
+          "It turns RadioReference data into usable CSV or TSV output for radio and SDR workflows.",
+          "It can export OP25-friendly trunk data for systems and talkgroup mapping.",
+          "It can also export Chirp-ready data for conventional radio setups.",
+        ],
+      },
+      {
+        type: "chips",
+        title: "Stack",
+        items: ["Python", "BeautifulSoup", "Requests", "CSV export", "OP25 tooling"],
+        column: "side",
+      },
+      {
+        type: "note",
+        title: "Why it belongs here",
+        body: "This is a real, useful utility with clear public value. It is not generic scraping for the sake of it; it solves a very specific problem in the radio / SDR ecosystem and is exactly the kind of project that has value in a portfolio.",
+        column: "side",
+      },
+    ],
+  },
+  {
+    slug: "slack-assistant",
+    title: "Slack Assistant",
+    category: "AI / workflow tooling",
+    layout: "build-log",
+    year: "2025",
+    status: "Open source",
+    summary:
+      "A Slack bot that monitors channels in real time, filters for relevant messages, and drafts or auto-sends replies using Claude and Slack Socket Mode.",
+    tags: ["Ruby", "Slack", "Claude", "Socket Mode", "Automation"],
+    links: [{ label: "GitHub", href: "https://github.com/jonshaw199/slack-assistant" }],
+    facts: [
+      { label: "Core flow", value: "Monitor → filter → draft → act" },
+      { label: "Primary use", value: "Relevant message triage" },
+    ],
+    sections: [
+      {
+        type: "narrative",
+        title: "Overview",
+        paragraphs: [
+          "Slack Assistant connects to Slack through Socket Mode and watches the channels you care about in real time. It filters for direct mentions and semantically relevant messages, then pushes them to a private alert channel for review or action.",
+          "In draft and auto modes, it can generate a concise reply using Claude and either post the draft or send the reply automatically, which makes it useful as a kind of personal triage assistant for busy team chat." 
+        ],
+      },
+      {
+        type: "points",
+        title: "What it does",
+        items: [
+          "Monitors channels without polling and without exposing a public callback URL.",
+          "Uses a relevance prompt to decide whether a message matters to you or your team.",
+          "Can post alerts with context, draft replies, or auto-send a short answer when appropriate.",
+        ],
+      },
+      {
+        type: "chips",
+        title: "Stack",
+        items: ["Ruby", "Slack Web API", "Socket Mode", "Claude", "Anthropic API"],
+        column: "side",
+      },
+      {
+        type: "note",
+        title: "Why it belongs here",
+        body: "This is a good portfolio piece because it shows actual judgment: the bot is not trying to be a giant product, it is a focused, practical tool that reduces noise and helps a user act on the right Slack messages.",
+        column: "side",
+      },
+    ],
+  },
 ];
 
 export function getProjectBySlug(slug: string) {
