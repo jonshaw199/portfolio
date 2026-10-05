@@ -12,57 +12,24 @@ export default function Home() {
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-5 py-10 sm:px-8 lg:px-10">
       <section className="border border-border bg-surface-strong px-6 py-8 shadow-[0_24px_80px_rgba(0,0,0,0.22)] sm:px-8 sm:py-10 lg:px-10">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+        <div className="space-y-6">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-accent-strong">
-              Project index
+              Jon Shaw
             </p>
             <h1 className="mt-4 max-w-4xl font-display text-6xl leading-[0.88] tracking-tight text-foreground sm:text-7xl lg:text-8xl">
-              Work, writing, and tools.
+              Selected projects.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl sm:leading-9">
-              A simple set of project entries focused on clear outcomes, real
-              product work, and the systems that make it usable.
-            </p>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-            <div className="border border-border bg-surface px-4 py-4">
-              <div className="text-xs uppercase tracking-[0.24em] text-muted">
-                Use it for
-              </div>
-              <div className="mt-2 text-2xl text-foreground">Case studies</div>
-            </div>
-            <div className="border border-border bg-surface px-4 py-4">
-              <div className="text-xs uppercase tracking-[0.24em] text-muted">
-                Use it for
-              </div>
-              <div className="mt-2 text-2xl text-foreground">Photos and GIFs</div>
-            </div>
-            <div className="border border-border bg-surface px-4 py-4">
-              <div className="text-xs uppercase tracking-[0.24em] text-muted">
-                Use it for
-              </div>
-              <div className="mt-2 text-2xl text-foreground">External links</div>
-            </div>
-          </div>
+          <p className="max-w-2xl text-lg leading-8 text-muted sm:text-xl sm:leading-9">
+            A focused collection of product work, systems, and tools with context,
+            screenshots, and links to each project.
+          </p>
         </div>
       </section>
 
       <section className="mt-8">
-        <div className="mb-5 flex items-center justify-between gap-4">
-          <div>
-            <p className="text-sm uppercase tracking-[0.24em] text-muted">
-              Selected work
-            </p>
-            <h2 className="mt-2 text-2xl text-foreground sm:text-3xl">
-              Recent projects
-            </h2>
-          </div>
-          <p className="max-w-md text-right text-sm leading-6 text-muted">
-            Software, publishing workflows, and interfaces built for real use.
-          </p>
-        </div>
 
         <div className="grid gap-5 lg:grid-cols-2">
           {portfolioProjects.map((project, index) => (
