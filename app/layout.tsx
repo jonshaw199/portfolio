@@ -26,14 +26,23 @@ export const metadata: Metadata = {
     default: "Jon Shaw | Portfolio",
     template: "%s | Jon Shaw Portfolio",
   },
-  description: "A portfolio of software, systems, and hardware projects by Jon Shaw.",
+  description:
+    "Portfolio of software, systems, and product work by Jon Shaw.",
   alternates: {
-    canonical: "/portfolio",
+    canonical: "https://jonshaw199.com/portfolio",
   },
+  keywords: [
+    "Jon Shaw",
+    "portfolio",
+    "software engineer",
+    "systems",
+    "product design",
+    "hardware projects",
+  ],
   openGraph: {
     title: "Jon Shaw | Portfolio",
-    description: "A portfolio of software, systems, and hardware projects by Jon Shaw.",
-    url: new URL("/portfolio", siteUrl),
+    description: "Portfolio of software, systems, and product work by Jon Shaw.",
+    url: "https://jonshaw199.com/portfolio",
     siteName: "Jon Shaw",
     type: "website",
     images: [
@@ -48,7 +57,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Jon Shaw | Portfolio",
-    description: "A portfolio of software, systems, and hardware projects by Jon Shaw.",
+    description: "Portfolio of software, systems, and product work by Jon Shaw.",
     images: ["/opengraph-image"],
   },
   robots: {
