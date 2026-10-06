@@ -214,7 +214,7 @@ export const portfolioProjects: PortfolioProject[] = [
     year: "2025",
     status: "Open source",
     summary:
-      "A Slack bot that monitors channels in real time, filters for relevant messages, and drafts or auto-sends replies using Claude and Slack Socket Mode.",
+      "A Slack bot that watches channels in real time, uses a plain-English profile to decide what matters to you, and suggests either a reply or a lightweight emoji reaction.",
     tags: ["Ruby", "Slack", "Claude", "Socket Mode", "Automation"],
     links: [{ label: "GitHub", href: "https://github.com/jonshaw199/slack-assistant" }],
     facts: [
@@ -226,8 +226,8 @@ export const portfolioProjects: PortfolioProject[] = [
         type: "narrative",
         title: "Overview",
         paragraphs: [
-          "Slack Assistant connects to Slack through Socket Mode and watches the channels you care about in real time. It filters for direct mentions and semantically relevant messages, then pushes them to a private alert channel for review or action.",
-          "In draft and auto modes, it can generate a concise reply using Claude and either post the draft or send the reply automatically, which makes it useful as a kind of personal triage assistant for busy team chat." 
+          "Slack Assistant connects to Slack through Socket Mode and watches the channels you care about in real time. Instead of hardcoding one workflow, it uses a plain-English relevance prompt where you describe your role, your team, and the kinds of messages you care about.",
+          "That makes it more general than a one-off bot: it can triage direct mentions, semantically relevant questions, and routine operational chatter, then route the result to a private review channel with a suggested action." 
         ],
       },
       {
@@ -235,8 +235,9 @@ export const portfolioProjects: PortfolioProject[] = [
         title: "What it does",
         items: [
           "Monitors channels without polling and without exposing a public callback URL.",
-          "Uses a relevance prompt to decide whether a message matters to you or your team.",
-          "Can post alerts with context, draft replies, or auto-send a short answer when appropriate.",
+          "Uses a profile-style relevance prompt so you can describe yourself and what matters, instead of maintaining brittle channel rules.",
+          "Can suggest a concise reply or, when that is more appropriate, a simple emoji reaction for fast acknowledgment.",
+          "Can post alerts with context, keep a human in the loop with review actions, or auto-send the response when appropriate.",
         ],
       },
       {
@@ -246,9 +247,22 @@ export const portfolioProjects: PortfolioProject[] = [
         column: "side",
       },
       {
+        type: "gallery",
+        title: "Demo",
+        items: [
+          {
+            title: "Alert review flow in Slack",
+            caption:
+              "The bot surfaces a relevant message in a private review channel, explains why it was flagged, and suggests either a response or a lightweight acknowledgment flow with quick actions.",
+            src: "/projects/slack-assistant/alert workflow.png",
+            alt: "Slack Assistant alert card with message preview, suggested reply, and Send Edit Dismiss actions",
+          },
+        ],
+      },
+      {
         type: "note",
         title: "Why it belongs here",
-        body: "This is a good portfolio piece because it shows actual judgment: the bot is not trying to be a giant product, it is a focused, practical tool that reduces noise and helps a user act on the right Slack messages.",
+        body: "This is a strong portfolio piece because it shows product judgment as much as implementation detail: the useful part is not just Slack automation, it is turning a personal description of priorities into triage, suggested actions, and lower-friction responses.",
         column: "side",
       },
     ],
