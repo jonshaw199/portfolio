@@ -31,12 +31,12 @@ export default function Home() {
 
       <section className="mt-8">
 
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className="grid items-start gap-5 lg:grid-cols-2">
           {portfolioProjects.map((project, index) => (
             <Link
               key={project.slug}
               href={`/projects/${project.slug}`}
-              className="group flex h-full flex-col border border-border bg-surface px-6 py-6 hover:-translate-y-0.5 hover:border-accent/60 hover:bg-surface-strong"
+              className="group flex flex-col border border-border bg-surface px-6 py-6 hover:-translate-y-0.5 hover:border-accent/60 hover:bg-surface-strong"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>

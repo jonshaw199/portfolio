@@ -68,8 +68,74 @@ export type PortfolioProject = {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    slug: "deputy",
+    title: "Deputy",
+    category: "AI / automation",
+    layout: "case-study",
+    year: "2025",
+    status: "Open source",
+    summary:
+      "A local autonomous coding daemon that watches Jira or GitHub Issues for AI-ready work, spins up isolated git worktrees, and opens draft PRs while you focus on the roadmap.",
+    tags: ["Node.js", "AI agents", "GitHub", "Jira", "Automation"],
+    links: [{ label: "GitHub", href: "https://github.com/jonshaw199/deputy" }],
+    facts: [
+      { label: "Role", value: "Full-stack owner" },
+      { label: "Scope", value: "Autonomous issue-to-PR loop" },
+    ],
+    sections: [
+      {
+        type: "narrative",
+        title: "Overview",
+        paragraphs: [
+          "Deputy is a local daemon that watches a tracker for AI-ready work items and resolves each one autonomously. It creates an isolated git worktree, runs the agent, pushes a branch, opens a draft PR, and advances the ticket without requiring the human to babysit every step.",
+          "The system is designed around the idea that routine implementation work should continue in the background while a human stays focused on prioritization and review. The dashboard gives a live view into each deputy, its active cases, and the streaming logs behind the work.",
+        ],
+      },
+      {
+        type: "points",
+        title: "Why it matters",
+        items: [
+          "It turns ready-to-work tickets into actual pull requests without requiring copy-paste prompts into a chat window.",
+          "Each case runs in an isolated worktree so the main repo remains untouched while the deputy is working.",
+          "It can recover from failing CI by reading the check output, fixing the breakage, and pushing another commit automatically.",
+          "The live dashboard makes the system feel operational rather than hidden behind a one-off script.",
+        ],
+      },
+      {
+        type: "chips",
+        title: "Stack",
+        items: ["Node.js", "TypeScript", "GitHub API", "Jira", "Claude Agent SDK"],
+        column: "side",
+      },
+      {
+        type: "gallery",
+        title: "Live dashboard and case flow",
+        items: [
+          {
+            title: "Deputy dashboard",
+            caption: "The dashboard shows each deputy, its active cases, and the current status of the autonomous work being performed.",
+            src: "/projects/deputy/dashboard.png",
+            alt: "Deputy dashboard screenshot",
+          },
+          {
+            title: "Live chat with a deputy",
+            caption: "The case view keeps the conversation and context attached to the live run so the user can steer the implementation without leaving the dashboard.",
+            src: "/projects/deputy/chat.png",
+            alt: "Deputy live chat screenshot",
+          },
+        ],
+      },
+      {
+        type: "note",
+        title: "Why it belongs here",
+        body: "This project sits squarely in the middle of product thinking and system design: it is not only an agent script, but a workflow that turns backlog items into working software with observability, isolation, and review. That makes it a strong example of practical automation in a portfolio.",
+        column: "side",
+      },
+    ],
+  },
+  {
     slug: "blog-platform",
-    title: "Personal blog platform",
+    title: "Personal Blog",
     category: "Software",
     layout: "case-study",
     year: "2025",
