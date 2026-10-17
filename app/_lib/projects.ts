@@ -75,7 +75,7 @@ export const portfolioProjects: PortfolioProject[] = [
     year: "2025",
     status: "Open source",
     summary:
-      "A local autonomous coding daemon that watches Jira or GitHub Issues for AI-ready work, spins up isolated git worktrees, and opens draft PRs while you focus on the roadmap.",
+      "A local autonomous coding daemon that watches Jira or GitHub Issues for ready work, uses pluggable trackers and agent commands, stacks dependent tickets into PR chains, spins up isolated git worktrees, surfaces review and decision points, and opens draft PRs while you stay in control.",
     tags: ["Node.js", "AI agents", "GitHub", "Jira", "Automation"],
     links: [{ label: "GitHub", href: "https://github.com/jonshaw199/deputy" }],
     facts: [
@@ -87,8 +87,8 @@ export const portfolioProjects: PortfolioProject[] = [
         type: "narrative",
         title: "Overview",
         paragraphs: [
-          "Deputy is a local daemon that watches a tracker for AI-ready work items and resolves each one autonomously. It creates an isolated git worktree, runs the agent, pushes a branch, opens a draft PR, and advances the ticket without requiring the human to babysit every step.",
-          "The system is designed around the idea that routine implementation work should continue in the background while a human stays focused on prioritization and review. The dashboard gives a live view into each deputy, its active cases, and the streaming logs behind the work.",
+          "Deputy is a local daemon that watches a tracker for ready work and resolves each item autonomously. It creates an isolated git worktree, runs the agent, pushes a branch, opens a draft PR, and keeps the case journaled so it can survive restarts or pauses without losing context. The tracker layer is pluggable and the agent command is swappable, so the workflow can adapt to Jira, GitHub Issues, Claude, or another backend without being rewritten.",
+          "The current system is built around real operational states, not just happy-path automation: it can stack dependent tickets, run sibling work in parallel, surface review comments, let it pause when it needs your call, and recover failed or stopped cases from the dashboard.",
         ],
       },
       {
@@ -96,9 +96,11 @@ export const portfolioProjects: PortfolioProject[] = [
         title: "Why it matters",
         items: [
           "It turns ready-to-work tickets into actual pull requests without requiring copy-paste prompts into a chat window.",
-          "Each case runs in an isolated worktree so the main repo remains untouched while the deputy is working.",
-          "It can recover from failing CI by reading the check output, fixing the breakage, and pushing another commit automatically.",
-          "The live dashboard makes the system feel operational rather than hidden behind a one-off script.",
+          "It can turn a whole epic into a chain of stacked PRs, then keep the children moving in parallel as dependencies land.",
+          "Trackers and agent runners are pluggable, so the same workflow can adapt to Jira, GitHub Issues, Claude, or another command.",
+          "Each case runs in an isolated worktree, or resumes an existing branch when one already exists, so the main repo stays clean.",
+          "It surfaces unresolved review comments, asks for help when it needs a decision, and keeps those states visible instead of burying them in logs.",
+          "It can recover from failing CI and preserve failed or stopped cases as retryable dashboard cards instead of dropping them on the floor.",
         ],
       },
       {
@@ -109,7 +111,7 @@ export const portfolioProjects: PortfolioProject[] = [
       },
       {
         type: "gallery",
-        title: "Live dashboard and case flow",
+        title: "Dashboard, review, and recovery",
         items: [
           {
             title: "Deputy dashboard",
@@ -119,16 +121,34 @@ export const portfolioProjects: PortfolioProject[] = [
           },
           {
             title: "Live chat with a deputy",
-            caption: "The case view keeps the conversation and context attached to the live run so the user can steer the implementation without leaving the dashboard.",
+            caption: "The case view keeps the conversation and context attached to the live run so you can steer implementation without leaving the dashboard.",
             src: "/projects/deputy/chat.png",
             alt: "Deputy live chat screenshot",
+          },
+          {
+            title: "Review comments surfaced on the case",
+            caption: "Review feedback is shown on the case itself, so Deputy can react to comments without replying directly on the pull request.",
+            src: "/projects/deputy/review.png",
+            alt: "Deputy review comments screenshot",
+          },
+          {
+            title: "Needs your call state",
+            caption: "When the agent hits a decision point it cannot safely guess, it pauses and asks for a human answer in the same thread.",
+            src: "/projects/deputy/needs-input.png",
+            alt: "Deputy needs input screenshot",
+          },
+          {
+            title: "Failed case kept for retry",
+            caption: "Broken runs are preserved as failed cards with their error context, which keeps them visible and easy to rerun later.",
+            src: "/projects/deputy/failed.png",
+            alt: "Deputy failed case screenshot",
           },
         ],
       },
       {
         type: "note",
         title: "Why it belongs here",
-        body: "This project sits squarely in the middle of product thinking and system design: it is not only an agent script, but a workflow that turns backlog items into working software with observability, isolation, and review. That makes it a strong example of practical automation in a portfolio.",
+        body: "This project sits squarely in the middle of product thinking and system design: it is not only an agent script, but a workflow that turns backlog items into working software with observability, isolation, review handling, human intervention, and retryable failure states. That makes it a strong example of practical automation in a portfolio.",
         column: "side",
       },
     ],
